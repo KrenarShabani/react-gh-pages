@@ -1,0 +1,10 @@
+import React from 'react'
+import productsData from './productsData'
+const App = () => (
+  <div>
+    
+
+
+  </div>
+)
+export default App

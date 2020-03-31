@@ -1,0 +1,19 @@
+import React from 'react'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import MainContent from './components/MainContent'
+import Todo from './Todo'
+import './App.css'
+
+const App = () => (
+  <div>
+    <Header />
+    <div className='todo-list'>
+      <Todo />
+      <Todo />
+      <Todo />
+    </div>
+    <Footer />
+  </div>
+)
+export default App
