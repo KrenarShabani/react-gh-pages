@@ -1,16 +1,40 @@
 import React from "react"
 
-function AboutMe(){
-  
-  return(
-    <body className='todo-list'>
-    <div className = 'panel'>
-      <p>Welcome to my Webpage! My name is Krenar Shabani and I have a great passion for Technology and Software. I enjoyed writing programs since I was a teenager and have created many interesting programs that you may experience here. </p>
-      <br />
-      <p>My hobbies include, but are not limited to, programming, game development, gaming, listening to music, and exploring new technologies. When I am not writing code, you will usually find me experimenting with the latest tools and frameworks or tinkering with a personal project. Feel free to check out my Projects page to see some of the things I have built &mdash; and thanks for stopping by!</p>
-    </div>
-    </body>
-  )
+function AboutMe() {
+  return (
+    <div className="about">
+      <p className="comment">{"// about.txt"}</p>
+      <p>
+        Hi, I'm <span className="accent">Krenar Shabani</span> — a software
+        engineer with a passion for technology and building things that work.
+        I've been writing programs since I was a teenager, and that early
+        curiosity turned into a career.
+      </p>
+      <p>
+        I enjoy taking a problem all the way down to its fundamentals — like my{" "}
+        <span className="accent">Sudoku solver</span>, which started as a C++
+        backtracking algorithm, grew a C# GUI, and now runs live in your browser
+        on this site (check the <span className="accent">sudoku</span> tab).
+      </p>
+      <p>
+        My hobbies include, but are not limited to, programming, game
+        development, gaming, listening to music, and exploring new technologies.
+        When I'm not writing code, you'll usually find me experimenting with new
+        tools and frameworks or tinkering with a personal project.
+      </p>
 
+      <p className="comment" style={{ marginTop: "1.5rem" }}>
+        {"// stack"}
+      </p>
+      <div className="skills">
+        {["C++", "C#", "JavaScript", "React", "HTML/CSS", "Unity"].map((s) => (
+          <span className="skill-tag" key={s}>
+            {s}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
 }
+
 export default AboutMe

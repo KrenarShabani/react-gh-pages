@@ -1,459 +1,385 @@
-.App {
-  text-align: center;
+/* ===== Terminal / developer theme ===== */
+$bg:        #0d1117;   // deep editor background
+$panel:     #161b22;   // terminal window
+$panel-2:   #1c2330;   // cards / inputs
+$border:    #30363d;
+$text:      #c9d1d9;   // primary text
+$muted:     #8b949e;   // comments / secondary
+$green:     #3fb950;   // primary accent
+$amber:     #d29922;   // secondary accent
+$cyan:      #58a6ff;
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@font-face {
-  font-family: myFirstFont;
-  src: url(https://fonts.google.com/specimen/Roboto);
-}
-html {
-  height: 100%;
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.webbackground {
   min-height: 100vh;
+  background: radial-gradient(circle at 20% 0%, #11161f 0%, $bg 60%);
+  color: $text;
+  font-family: "SF Mono", "Fira Code", "JetBrains Mono", Menlo, Consolas,
+    "Courier New", monospace;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 1.5rem;
+  gap: 1.25rem;
 }
 
-.App-link {
-  color: #61dafb;
+.accent {
+  color: $green;
+}
+.comment {
+  color: $muted;
+  font-style: italic;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-  height: 100%;
-  background: linear-gradient (blue, red);
-}
-#grad1 {
-  height: 200px;
-  background-color: red;
-  background-image: linear-gradient(red, bkue)
-}
-
-.footer {
-  height: 10%;
-  /*background-color: #222;
-  color: whitesmoke; */
-  background-image: linear-gradient(to left, #7cf4d3, #89aee1, #d46ce7, #e9f259, #7cf4d3);
-  background-size: 200% 100%;
-  bottom: 1%;
-  position: absolute;
-  left: 10%;
-  font-size: 25px;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  margin: auto;
-  border-radius: 15px 50px;
-  
-  -webkit-animation: AnimationName 15s ease infinite;
-  -moz-animation: AnimationName 15s ease infinite;
-  animation: AnimationName 15s ease infinite;
-  
-            background-attachment:fixed;
-            background-repeat:no-repeat;
-            background-position:center;
-}
-
+/* ===== Nav (terminal title bar) ===== */
 .navbar {
-  position:absolute;
-  top: 1%;
-  left:10%;
-  border-radius: 15px 50px;
-  height: 10%;
-  width: 80%;
-  margin: auto;
-  /*background-color: #222; */
-  
-  background-image: linear-gradient(to left, #7cf4d3, #89aee1, #d46ce7, #e9f259, #7cf4d3);
-  background-size: 500% 100%;
-  color: whitesmoke;
-  margin-bottom: 15px;
-  font-size: 30px;
   display: flex;
-  -webkit-animation: AnimationName 15 ease infinite;
-  -moz-animation: AnimationName 15s ease infinite;
-  animation: AnimationName 15s ease infinite;
-  
-            background-attachment:fixed;
-            background-repeat:no-repeat;
-            background-position:center;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  background: $panel;
+  border: 1px solid $border;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-/* The animation code */
-@keyframes example {
-  0% {
-    left: 0%;
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    &.red { background: #ff5f56; }
+    &.yellow { background: #ffbd2e; }
+    &.green { background: #27c93f; }
   }
-
-  100% {
-    left: 100%;
+  .nav-title {
+    margin-left: 0.6rem;
+    color: $muted;
+    font-size: 0.85rem;
   }
 }
 
-.todo-list {
-  background-image: linear-gradient(to left, #7cf4d3, #89aee1, #d46ce7, #e9f259, #7cf4d3);
-  background-size: 300% 100%;
-  margin: auto;
-  height: auto;
-  width: 25%;
-  margin-top: -1%;
+.nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.nav-tab {
+  background: transparent;
+  border: 1px solid transparent;
+  color: $muted;
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: $text;
+    background: $panel-2;
+  }
+  &.active {
+    color: $green;
+    border-color: $green;
+  }
+}
+
+/* ===== Terminal window ===== */
+.terminal-window {
+  background: $panel;
+  border: 1px solid $border;
+  border-radius: 10px;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.terminal-body {
+  padding: 2rem;
+  min-height: 60vh;
+  transition: opacity 0.15s ease;
+  opacity: 1;
+  line-height: 1.7;
+
+  &.fade {
+    opacity: 0;
+  }
+
+  p {
+    max-width: 70ch;
+  }
+}
+
+/* ===== Home / hero ===== */
+.hero-terminal {
+  font-family: inherit;
+  font-size: 1.05rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  color: $text;
+  min-height: 11rem;
+}
+
+.cursor {
+  color: $green;
+  &.blink {
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.hero-cta {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Buttons ===== */
+.term-btn {
+  font-family: inherit;
+  font-size: 0.9rem;
+  background: $panel-2;
+  color: $text;
+  border: 1px solid $border;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: $green;
+    color: $green;
+    transform: translateY(-1px);
+  }
+  &.primary {
+    border-color: $green;
+    color: $green;
+  }
+  &.primary:hover {
+    background: rgba(63, 185, 80, 0.12);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* ===== Skills / tags ===== */
+.skills,
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.skill-tag {
+  background: $panel-2;
+  border: 1px solid $border;
+  color: $cyan;
+  border-radius: 5px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+/* ===== Projects ===== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.project-card {
+  background: $panel-2;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 1px solid #efefef;
-  border-radius:15px 50px;
-  /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 10px 0 -5px #eee, 0 10px 1px -4px rgba(0, 0, 0, 0.15);*/
+  transition: border-color 0.15s ease, transform 0.15s ease;
 
-
-  
-  padding: 30px;
-  -webkit-animation: AnimationName 15s ease infinite;
-  -moz-animation: AnimationName 15s ease infinite;
-  animation: AnimationName 15s ease infinite;
-            background-attachment:fixed;
-            background-repeat:no-repeat;
-            background-position:center;
+  &:hover {
+    border-color: $green;
+    transform: translateY(-3px);
+  }
+  h3 {
+    margin: 0 0 0.5rem;
+    color: $text;
+  }
+  p {
+    color: $muted;
+    font-size: 0.9rem;
+    flex: 1;
+  }
 }
-
-.todo-item {
+.card-actions {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 30px 20px 0;
-  width: 70%;
-  border-bottom: 1px solid #cecece;
-  font-family: Roboto, sans-serif;
-  font-weight: 100;
-  font-size: 15px;
-  color: #333333;
-
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
 }
-.panel{
-background-size: cover;
-display: flex;
-flex-direction: column;
-  background-color:white;
-  background-size: cover;
-  margin: auto;
-  padding :30px;
-  align-items: center;
-      border-radius:15px 50px;
 
-}	
-.game-panel{
-	display: flex;
-	flex-direction: column;
-  background-color:white;
-  background-size: cover;
-  height: 500px;
-  margin: 0;
-  width: auto;
-  align-items: center;
-
+/* ===== Sudoku ===== */
+.sudoku-board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  width: 100%;
+  max-width: 420px;
+  margin: 1.25rem 0;
+  border: 2px solid $green;
+  border-radius: 4px;
+  overflow: hidden;
 }
-.todo-item-done {
-  text-decoration: line-through;
+.sudoku-cell {
+  aspect-ratio: 1 / 1;
+  border: 1px solid $border;
+  background: $bg;
+  color: $cyan;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1.1rem;
+  outline: none;
+  min-width: 0;
+  padding: 0;
+
+  &.given {
+    color: $text;
+    font-weight: bold;
+    background: $panel-2;
+  }
+  &.solved {
+    color: $green;
+  }
+  &.border-right {
+    border-right: 2px solid $green;
+  }
+  &.border-bottom {
+    border-bottom: 2px solid $green;
+  }
+  &:focus {
+    background: rgba(63, 185, 80, 0.12);
+  }
+}
+.sudoku-controls {
   display: flex;
-  justify-content: flex-start;
-  alig-items: center;
-  padding: 30px 20px 0;
-  width: 70%;
-  border-bottom: 1px solid #cecece;
-  font-family: Roboto, sans-serif;
-  font-weight: 100;
-  font-size: 15px;
-  color: #0000cd;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.sudoku-status {
+  color: $amber;
+  margin-top: 1rem;
 }
 
-input[type=checkbox] {
-  margin-right: 10px;
+/* ===== Game ===== */
+.game-frame {
+  margin-top: 1rem;
+  border: 1px solid $border;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  canvas {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+  }
 }
 
-.github {
-  position: relative;
-  left: 25px;
-  bottom: -10%;
+/* ===== Contact ===== */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  max-width: 460px;
+}
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $panel-2;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  color: $text;
   text-decoration: none;
-  z-index: 2;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: $green;
+    transform: translateX(3px);
+  }
+  .contact-label {
+    color: $green;
+  }
+  .contact-value {
+    color: $muted;
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== Footer ===== */
+.footer {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  color: $muted;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  .prompt {
+    color: $green;
+  }
+  .footer-links {
+    margin-left: auto;
+    display: flex;
+    gap: 1rem;
+    a {
+      color: $cyan;
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+    }
+  }
 }
 
 a {
-  text-decoration: none;
-  color: white;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  color: $cyan;
 }
 
-.email {
-  position: absolute;
-  bottom: -20%;
-  right: 25px;
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .webbackground { padding: 0.75rem; }
+  .terminal-body { padding: 1.25rem; }
+  .nav-brand .nav-title { display: none; }
+  .footer-links { margin-left: 0; }
 }
-
-.egreen {
-  color: white;
-}
-
-.aboutme {
-  margin: 0 auto;
-  width: 70%;
-}
-
-/*.webbackground {
-  background: url("comp/branches.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
-  min-height: 100vh;
-  min-width: 100vw;
-}
-*/
-
-.webbackground{
-
-  background-image: linear-gradient(to left, #7cf4d3, #89aee1, #d46ce7, #e9f259, #7cf4d3 );
-  background-size: cover;
-/*
-  -webkit-animation: AnimationName 150s linear infinite;
-  -moz-animation: AnimationName 150s linear infinite;
-  animation: AnimationName 150s linear infinite;
-           
-            background-attachment:fixed;
-            background-repeat:no-repeat;
-            background-position:center;
-    */
-}
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 52%}
-    100%{background-position:0% 49%}
-}
-@keyframes AnimationName { 
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-gap: 10px;
-  padding: 10px;
-
-  > div {
-    background-color: rgba(255, 225, 225, 0.8);
-    border: 1px solid black;
-    text-align: center;
-    font-size: 30px;
-  }
-}
-
-.button {
-  position: relative;
-  left: 1%;
-  bottom: -40%;
-  height: 40%;
-  width: 8%;
-  margin: 5px;
-  text-align: center;
-  font-weight: bold;
-  border-radius:10px 40px;
-  transition-duration:0.4s;
-  opacity:1;
-}
-.button:hover{
-  opacity:1;
-}
-
-.ryu {
-  position: absolute;
-  bottom: 50%;
-  left: -50px;
-  animation-name: example;
-  animation-duration: 5s;
-  animation-direction: alternate;
-  animation-timing-function: ease-out;
-  z-index: 2;
-}
-
-.name {
-  padding-left: 0px;
-  position: absolute;
-  margin: auto;
-  z-index: 1;
-  left: 50%;
-  top: 25%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
-.wrapperName{
-  position:relative;
-
-}
-
-:root {
-  --home:0%;
-  --about-me:-100%;
-  --projects:-200%;
-}
-
-.tape {
-  align-content: column;
-  position: absolute;
-  display: flex;
-  width: 300%;
-  height: 50%;
-  top: 25%;
-}
-
-.Home {
-  left: 0%;
-}
-
-.About {
-  left: -100%;
-  }
-
-.Projects {
-  left: -200%;
-}
-
-.tape-animation {
-  align-content: column;
-  position: absolute;
-  display: flex;
-  width: 300%;
-  height: 50%;
-  left: 0%;
-  top:25%;
-
-  /*animation-name:move; */
-  animation-duration: 0.5s;
-  animation-timing-function: ease-out;
-}
-
-
-.tape-anipa {
-  animation-name: movepAbout;
-}
-
-.tape-aniha {
-  animation-name: movehAbout;
-}
-
-.tape-aniap {
-  animation-name: moveaProjects;
-}
-
-.tape-anihp {
-  animation-name: movehProjects;
-}
-
-.tape-aniah {
-  animation-name: moveaHome;
-}
-
-.tape-aniph {
-  animation-name: movepHome;
-}
-
-@keyframes movehProjects {
-  0% {
-    left: var(--home);
-  }
-
-  100% {
-    left: var(--projects);
-  }
-}
-
-@keyframes moveaProjects {
-  0% {
-    left: var(--about-me);
-  }
-
-  100% {
-    left: var(--projects);
-  }
-}
-
-@keyframes movehAbout {
-  0% {
-    left: var(--home);
-  }
-
-  100% {
-    left: var(--about-me);
-  }
-}
-
-@keyframes movepAbout {
-  0% {
-    left: var(--projects);
-  }
-
-  100% {
-    left: var(--about-me);
-  }
-}
-
-@keyframes moveaHome {
-  0% {
-    left: var(--about-me);
-  }
-
-  100% {
-    left: var(--home);
-  }
-}
-
-@keyframes movepHome {
-  0% {
-    left: var(--projects);
-  }
-
-  100% {
-    left: var(--home);
-  }
-}
-
