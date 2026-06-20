@@ -5,14 +5,23 @@ function AboutMe() {
     <div className="about">
       <p className="comment">{"// about.txt"}</p>
       <p>
-        Hi, I'm <span className="accent">Krenar Shabani</span> — a software
-        engineer with a passion for technology and building things that work.
-        I've been writing programs since I was a teenager, and that early
-        curiosity turned into a career.
+        Hi, I'm <span className="accent">Krenar Shabani</span> — a{" "}
+        <span className="accent">full-stack software engineer</span> with a
+        passion for technology and building things that work. I've been writing
+        programs since I was a teenager, and that early curiosity turned into a
+        career.
       </p>
       <p>
-        I enjoy taking a problem all the way down to its fundamentals — like my{" "}
-        <span className="accent">Sudoku solver</span>, which started as a C++
+        I work across the whole stack — from front-end interfaces in React to
+        back-end logic and data — and I'm right at home on the{" "}
+        <span className="accent">Linux</span> command line, where I do most of
+        my development. Lately I've been{" "}
+        <span className="accent">integrating AI and LLMs</span> into my projects,
+        building features on top of modern models and APIs.
+      </p>
+      <p>
+        I also enjoy taking a problem all the way down to its fundamentals — like
+        my <span className="accent">Sudoku solver</span>, which started as a C++
         backtracking algorithm, grew a C# GUI, and now runs live in your browser
         on this site (check the <span className="accent">sudoku</span> tab).
       </p>
@@ -27,7 +36,18 @@ function AboutMe() {
         {"// stack"}
       </p>
       <div className="skills">
-        {["C++", "C#", "JavaScript", "React", "HTML/CSS", "Unity"].map((s) => (
+        {[
+          "C++",
+          "C#",
+          "Java",
+          "JavaScript",
+          "React",
+          "Full-Stack",
+          "Linux",
+          "AI / LLMs",
+          "HTML/CSS",
+          "Unity",
+        ].map((s) => (
           <span className="skill-tag" key={s}>
             {s}
           </span>

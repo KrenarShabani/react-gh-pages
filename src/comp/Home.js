@@ -3,12 +3,14 @@ import React, { useState, useEffect } from "react"
 // Lines "typed" into the terminal hero on load.
 const LINES = [
   { cmd: "whoami", out: "Krenar Shabani" },
-  { cmd: "cat role.txt", out: "Software Engineer" },
+  { cmd: "cat role.txt", out: "Full-Stack Software Engineer" },
   {
     cmd: "cat about.txt",
     out:
-      "I build software and have loved programming since I was a teenager. " +
-      "C++, C#, JavaScript & React.",
+      "I build full-stack software and have loved programming since I was a " +
+      "teenager. Comfortable across the stack and on the command line — I work " +
+      "daily in Linux — and I like integrating AI/LLMs into the things I build. " +
+      "C++, C#, Java, JavaScript & React.",
   },
 ]
 

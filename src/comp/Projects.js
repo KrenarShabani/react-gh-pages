@@ -17,6 +17,20 @@ const PROJECTS = [
     ],
   },
   {
+    title: "Student Records GUI",
+    tags: ["Java", "Swing"],
+    body:
+      "A desktop application built in Java with Swing for managing student " +
+      "records — a sortable data table with add, replace, delete, and search " +
+      "dialogs, plus loading and saving records from files.",
+    actions: [
+      {
+        label: "github ↗",
+        href: "https://github.com/KrenarShabani/StudentGUI",
+      },
+    ],
+  },
+  {
     title: "Unity WebGL Game",
     tags: ["C#", "Unity"],
     body:
