@@ -298,6 +298,25 @@ $cyan:      #58a6ff;
   margin-top: 1rem;
 }
 
+/* ===== Java app (CheerpJ) ===== */
+.java-launch {
+  margin-top: 1rem;
+  p {
+    color: $muted;
+    margin-bottom: 1rem;
+  }
+}
+.java-display {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 640px;
+  height: 640px;
+  border: 1px solid $border;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1e1e1e;
+}
+
 /* ===== Game ===== */
 .game-frame {
   margin-top: 1rem;

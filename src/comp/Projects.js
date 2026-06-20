@@ -22,8 +22,10 @@ const PROJECTS = [
     body:
       "A desktop application built in Java with Swing for managing student " +
       "records — a sortable data table with add, replace, delete, and search " +
-      "dialogs, plus loading and saving records from files.",
+      "dialogs, plus loading and saving records from files. The actual " +
+      "compiled Java runs in your browser here via a WASM JVM.",
     actions: [
+      { label: "▶ run in browser", tab: "Records", primary: true },
       {
         label: "github ↗",
         href: "https://github.com/KrenarShabani/StudentGUI",

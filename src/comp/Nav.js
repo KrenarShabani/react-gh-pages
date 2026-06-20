@@ -5,6 +5,7 @@ const TABS = [
   { value: "About", label: "~/about" },
   { value: "Projects", label: "~/projects" },
   { value: "Sudoku", label: "~/sudoku" },
+  { value: "Records", label: "~/records" },
   { value: "Game", label: "~/game" },
   { value: "Contact", label: "~/contact" },
 ]

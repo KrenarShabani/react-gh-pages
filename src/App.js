@@ -8,6 +8,7 @@ import Home from "./comp/Home"
 import AboutMe from "./comp/AboutMe"
 import Projects from "./comp/Projects"
 import Sudoku from "./comp/Sudoku"
+import StudentApp from "./comp/StudentApp"
 import Contact from "./comp/Contact"
 import Footer from "./comp/Footer"
 
@@ -39,6 +40,8 @@ class App extends Component {
         return <Projects handle={this.Handler} />
       case "Sudoku":
         return <Sudoku />
+      case "Records":
+        return <StudentApp />
       case "Game":
         return (
           <div className="game">
